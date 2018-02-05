@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.Enumeration;
 
 import javax.naming.ldap.ManageReferralControl;
 import javax.swing.*;
@@ -11,21 +12,28 @@ public class View extends JFrame {
 	private JButton Calculate;
 	Controller controller;
 	private JFrame frame;
+	private JLabel result;
 	//construtor
 	public View() {
 		initialzeObjects();
 		groupRadioButtons();
 		addItemstoFrame();
+		
 		frame.setTitle("Calcualtor");
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		frame.setVisible(true);
-		frame.setSize(380, 150);
+		frame.setSize(350, 150);
 		frame.setResizable(false);
 		frame.setLayout(new FlowLayout());
 		addRB.setSelected(true);
 
 	}
 	
+	public void registerEvents() {
+		Calculate.addActionListener(controller);
+		
+	}
+
 	public void groupRadioButtons() {
 		rbGroup.add(addRB);
 		rbGroup.add(subRB);
@@ -45,6 +53,7 @@ public class View extends JFrame {
 		frame.add(modRB);
 		frame.add(sqrRB);
 		frame.add(Calculate);
+		frame.add(result);
 	}
 	
 	public void initialzeObjects() {
@@ -56,8 +65,36 @@ public class View extends JFrame {
 		mulRB=new JRadioButton("*");
 		modRB=new JRadioButton("%");
 		divRB=new JRadioButton("/");
+		result=new JLabel("Result");
 		sqrRB=new JRadioButton("sqr");
 		rbGroup=new ButtonGroup();
 		Calculate=new JButton("Calculate");
+	}
+
+	public void addController(Controller controller) {
+		this.controller=controller;
+	}
+	
+	public String getSelectedName() {
+		for (Enumeration<AbstractButton> buttons = rbGroup.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+
+            if (button.isSelected()) {
+                return button.getText();
+            }
+        }
+	return null;
+	}
+	
+	public double getNumber1() {
+		return Double.parseDouble(txt1.getText());
+	}
+	
+	public double getNumber2() {
+		return Double.parseDouble(txt2.getText());
+	}
+	
+	public void setResult(double result) {
+		this.result.setText(result+"");
 	}
 }
