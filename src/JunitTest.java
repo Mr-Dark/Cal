@@ -38,6 +38,9 @@ public class JunitTest {
 		assertEquals(res,0,0);
 		res=c.m.mul(0, -50);
 		assertEquals(res,0,0);
+		res=c.m.add(Double.parseDouble("15"), 15);
+		assertEquals(res,30,0);
+		
 		
 		
 		

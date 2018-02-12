@@ -4,6 +4,8 @@ import java.util.Enumeration;
 import javax.naming.ldap.ManageReferralControl;
 import javax.swing.*;
 
+import org.apache.commons.lang3.StringUtils;
+
 
 public class View extends JFrame {
 	private TextField txt1,txt2;
@@ -87,10 +89,16 @@ public class View extends JFrame {
 	}
 	
 	public double getNumber1() {
+		if(!StringUtils.isNumeric(txt1.getText())) {
+			return 0;
+		}
 		return Double.parseDouble(txt1.getText());
 	}
 	
 	public double getNumber2() {
+		if(!StringUtils.isNumeric(txt2.getText())) {
+			return 0;
+		}
 		return Double.parseDouble(txt2.getText());
 	}
 	
