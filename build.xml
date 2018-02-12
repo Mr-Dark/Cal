@@ -7,6 +7,8 @@
 		<pathelement location="./mylibs/junit-4.10.jar"/>
 		<pathelement location="./mylibs/hamcrest-core-1.3.jar"/>
 		<pathelement location="./mylibs/selenuim-server-standalone-3.9.1.jar"/>
+		<pathelement location="./mylibs/commons-lang3-3.7.jar"/>
+		
 	</path>
 
 		<target name="compile">
