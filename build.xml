@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="compile">
+	<property name="src.java.dir" location="./src"/>
+	<property name="result.dir" location="./target"/>
+	<property name="result.javaclasses.dir" location="${result.dir}/classes"/>
+	<path id="libs">
+		<pathelement location="./mylibs/junit-4.10.jar"/>
+		<pathelement location="./mylibs/hamcrest-core-1.3.jar"/>
+		<pathelement location="./mylibs/selenuim-server-standalone-3.9.1.jar"/>
+	</path>
+
+		<target name="compile">
+		<mkdir dir="${result.javaclasses.dir}"/>
+		<javac srcdir="${src.java.dir}" destdir="${result.javaclasses.dir}" debug="true" includeantruntime="false">
+			<classpath>
+				<path refid="libs"/>
+				<pathelement location="${result.javaclasses.dir}"/>
+			</classpath>
+		</javac>
+	</target>
+	
+	<target name="test" depends="compile">
+		<junit printsummary="true" haltonfailure="true" fork="true">
+			<classpath>
+				<path refid="libs"></path>
+				<pathelement location="${result.javaclasses.dir}"/>
+			</classpath>
+			<formatter type="brief" usefile="false"/>
+			<batchtest >
+				<fileset dir="${result.javaclasses.dir}" >
+					<include name="JunitTesst.java"/>
+				</fileset>
+			</batchtest>
+		</junit>
+	</target>
+</project>
