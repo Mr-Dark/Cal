@@ -32,6 +32,12 @@ public class JunitTest {
 		assertEquals(res,0,0);
 		res=c.m.sq(-16);
 		assertEquals(res,4,0);
+		res=c.m.add(50, -50);
+		assertEquals(res,0,0);
+		res=c.m.sub(-50, -50);
+		assertEquals(res,0,0);
+		res=c.m.mul(0, -50);
+		assertEquals(res,0,0);
 		
 		
 		
