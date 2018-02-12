@@ -28,7 +28,7 @@
 			<formatter type="brief" usefile="false"/>
 			<batchtest >
 				<fileset dir="${result.javaclasses.dir}" >
-					<include name="JunitTesst.java"/>
+					<include name="JunitTest.java"/>
 				</fileset>
 			</batchtest>
 		</junit>
