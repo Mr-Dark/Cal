@@ -25,10 +25,5 @@
 			<type>1</type>
 			<locationURI>PROJECT_LOC/MyLibraries/junit-4.10.jar</locationURI>
 		</link>
-		<link>
-			<name>mylibs/selenium-server-standalone-3.9.1.jar</name>
-			<type>1</type>
-			<locationURI>PROJECT_LOC/MyLibraries/selenium-server-standalone-3.9.1.jar</locationURI>
-		</link>
 	</linkedResources>
 </projectDescription>

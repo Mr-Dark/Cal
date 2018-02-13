@@ -105,4 +105,5 @@ public class View extends JFrame {
 	public void setResult(double result) {
 		this.result.setText(result+"");
 	}
+	
 }
